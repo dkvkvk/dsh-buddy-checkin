@@ -1,0 +1,62 @@
+{
+  "name": "dsh-buddy-checkin",
+  "displayName": "DSH Buddy Check-in",
+  "version": "0.4.1-r1",
+  "private": true,
+  "description": "DSH 启动时自动完成 WorkBuddy 国内版账号的每日签到 — runs the WorkBuddy (CN) daily check-in on DSH startup, claiming the daily credits.",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "workbuddy",
+    "check-in"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.txt",
+    "README.md",
+    "CHANGELOG.md",
+    "UPSTREAM-README.md",
+    "scripts"
+  ],
+  "scripts": {
+    "verify": "node scripts/verify-import.mjs",
+    "install-profile": "node scripts/install-into-profile.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "slots"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-host-webserver": "^0.1.5-rc.1 || ^0.1.7-rc.1 || 0.2.0-rc.1 || 0.2.0-rc.2 || >=0.2.1-rc.1 <0.3.0-0",
+    "react": "^18.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkvkvk/dsh-buddy-checkin.git"
+  },
+  "homepage": "https://github.com/dkvkvk/dsh-buddy-checkin#readme",
+  "bugs": "https://github.com/corrinehu/dsh-buddy-checkin/issues",
+  "author": "corrinehu"
+}

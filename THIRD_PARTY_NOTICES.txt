@@ -1,0 +1,14 @@
+dsh-buddy-checkin
+=================
+
+本仓库不含第三方代码。
+
+Host 半边（lib/index.mjs）只引用 Node.js 内置模块（node:fs、node:path、node:os、
+node:crypto、node:child_process 的 execFile 等），不打包任何 npm 依赖。
+
+Client 半边（lib/client.js）通过 window.__ModuleLoader__ 的 require("react") 取用
+React，该依赖由 DSH 宿主提供（package.json 里声明为 peerDependency: react ^18.2.0），
+不随本仓库分发。
+
+lib/、assets/、cordis.patch.yml 的著作权归上游作者 Corrine Hu（MIT），
+见 LICENSE 与 https://www.npmjs.com/package/dsh-buddy-checkin 。

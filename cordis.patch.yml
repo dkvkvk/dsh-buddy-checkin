@@ -1,0 +1,4 @@
+- insert:
+    - id: buddy-checkin
+      name: dsh-buddy-checkin
+      config: {}

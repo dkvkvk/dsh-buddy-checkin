@@ -1,0 +1,7 @@
+# 打包产物：不入库
+dist/
+node_modules/
+*.tgz
+
+# profile 备份（install-into-profile.mjs 生成在 profile 目录，这里兜底）
+*.bak-*
